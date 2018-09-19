@@ -49,6 +49,7 @@ class RPSGame:
         self.choices = ["rock", "paper", "scissors"]
         self.player_score = 0
         self.computer_score = 0
+        self.tie_score = 0
 
         self.label = tk.Label(master, text="Choose Rock, Paper, or Scissors:")
         self.label.pack()
@@ -70,12 +71,13 @@ class RPSGame:
         self.quit_button.pack(pady=5)
 
     def get_score_text(self):
-        return f"Player: {self.player_score}  Computer: {self.computer_score}"
+        return f"Player: {self.player_score}  Computer: {self.computer_score}  Ties: {self.tie_score}"
 
     def play_round(self, player_choice):
         computer_choice = random.choice(self.choices)
         if player_choice == computer_choice:
             result = "It's a tie!"
+            self.tie_score += 1
         elif (player_choice == "rock" and computer_choice == "scissors") or \
              (player_choice == "paper" and computer_choice == "rock") or \
              (player_choice == "scissors" and computer_choice == "paper"):
