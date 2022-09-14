@@ -11,7 +11,13 @@ import sys
 def play_round():
     choices = ["rock", "paper", "scissors"]
     computer_choice = random.choice(choices)
-    player_choice = input("Enter your choice (rock, paper, scissors) or 'quit' to exit: ").lower()
+    player_choice = input("Enter a choice (r for rock, p for paper, s for scissors) or 'quit' to exit: ").lower()
+    if player_choice == 'r':
+        player_choice = 'rock'
+    elif player_choice == 'p':
+        player_choice = 'paper'
+    elif player_choice == 's':
+        player_choice = 'scissors'
 
     if player_choice == "quit":
         sys.exit("Thanks for playing!")
