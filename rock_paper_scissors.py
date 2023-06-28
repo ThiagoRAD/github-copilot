@@ -51,8 +51,8 @@ class RPSGame:
         self.computer_score = 0
         self.tie_score = 0
 
-        self.label = tk.Label(master, text="Choose Rock, Paper, or Scissors:")
-        self.label.pack()
+        self.label = tk.Label(master, text="Choose Rock, Paper, or Scissors", font=("Arial", 16, "bold"))
+        self.label.pack(pady=15, padx=15)  # Added vertical padding
 
         self.result_label = tk.Label(master, text="")
         self.result_label.pack()
@@ -61,7 +61,7 @@ class RPSGame:
         self.score_label.pack()
 
         self.button_frame = tk.Frame(master)
-        self.button_frame.pack()
+        self.button_frame.pack(pady=(10, 0))  # Added top padding
         for choice in self.choices:
             btn = tk.Button(self.button_frame, text=choice.capitalize(), width=10,
                             command=lambda c=choice: self.play_round(c))
